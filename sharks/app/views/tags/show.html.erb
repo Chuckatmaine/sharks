@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @tag.number %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @tag.lat %>
+</p>
+
+<p>
+  <strong>Lon:</strong>
+  <%= @tag.lng %>
+</p>
+
+<p>
+  <strong>Shark:</strong>
+  <%= @tag.shark_id %>
+</p>
+
+<p>
+  <strong>Angler:</strong>
+  <%= @tag.angler_id %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @tag.comments %>
+</p>
+
+<p>
+  <strong>> Five miles offshore:</strong>
+  <%= @tag.five_miles %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @tag.date %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @tag.sex %>
+</p>
+
+<p>
+  <strong>Tagger:</strong>
+  <%= @tag.tagger_id %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @tag.method %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @tag.condition %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @tag.length %> Inches / <%= number_with_precision (@tag.length.to_f / 12), :precision => 2 %> Feet
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @tag.weight %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @tag.species %>
+</p>
+
+<%= link_to 'Edit', edit_tag_path(@tag) %> |
+<%= link_to 'Back', tags_path %>

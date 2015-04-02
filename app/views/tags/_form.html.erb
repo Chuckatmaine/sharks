@@ -1,0 +1,102 @@
+<%= form_for(@tag) do |f| %>
+  <% if @tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+      <ul>
+      <% @tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% aspecies = ['Blue Shark', 'Short Fin Mako', 'Porbeagle', 'Thresher'] %>
+  <% ans = ['N', 'S'] %>
+  <% aew = ['E', 'W'] %>
+  <% amethod = ['Rod and Reel', 'Handline', 'Harpoon'] %>
+  <% acondition = ['Good', 'Fair', 'Poor'] %>
+  <% asex = ['Female', 'Male', 'Unknown'] %>
+  <div class="field">
+    <%= f.label :number, "Tag Number" %>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :species %>
+    <%= f.select :species, aspecies %>
+  </div>
+  <div class="field">
+    <%= f.label :ns, "N/S" %>
+    <%= f.select :ns, ans %>
+  </div>
+  <div class="field">
+    <%= f.label :latdeg %>
+    <%= f.text_field :latdeg %>
+  </div>
+  <div class="field">
+    <%= f.label :latmin %>
+    <%= f.text_field :latmin %>
+  </div>
+  <div class="field">
+    <%= f.label :latsec %>
+    <%= f.text_field :latsec %>
+  </div>
+  <div class="field">
+    <%= f.label :ew, "E/W" %>
+    <%= f.select :ew, aew %>
+  </div>
+  <div class="field">
+    <%= f.label :londeg %>
+    <%= f.text_field :londeg %>
+  </div>
+  <div class="field">
+    <%= f.label :lonmin %>
+    <%= f.text_field :lonmin %>
+  </div>
+  <div class="field">
+    <%= f.label :lonsec %>
+    <%= f.text_field :lonsec %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.select :sex, asex %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "Angler" %>
+    <%= f.collection_select(:angler_id, User.all, :id, :email, :prompt=> 'Select') %>
+  </div>
+  <div class="field">
+    <%= f.label :five_miles %>
+    <%= f.check_box :five_miles %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :tagger_id, "Tagger" %>
+    <%= f.collection_select(:tagger_id, User.where(tagger: true), :id, :email, :prompt=> 'Select') %>
+  </div>
+  <div class="field">
+    <%= f.label :method %>
+    <%= f.select :method, amethod %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %>
+    <%= f.select :condition, acondition %>
+  </div>
+  <div class="field">
+    <%= f.label :length %>
+    <%= f.number_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
